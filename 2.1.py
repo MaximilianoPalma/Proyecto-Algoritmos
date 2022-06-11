@@ -28,8 +28,7 @@ for x in range(len(x1)):
     for y in range(len(x2)):
         if x1[x]+x2[y]<=5:
             a.append((x1[x],x2[y],f(x1[x],x2[y],teta)))
-        else:
-            b.append('no Aplica')
+
                 
 
 mayor=a[0][2]
