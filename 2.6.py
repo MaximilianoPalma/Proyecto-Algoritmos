@@ -1,4 +1,3 @@
-from re import A
 import sympy as sp
 
 def Hessiana(funcion,xa,xb):
@@ -24,7 +23,7 @@ def Algoritmo(p_x,p_y,p_xy):
         return('no existe información suficiente sobre el punto')
     
 
-funcion=input('Ingrese la funcion a evaluar: ')
+funcion='sin(x+y)+(x-y)^2-1.5*x+2.5*y+1'
 xa=float(input('Ingrese una valor para x: '))
 xb=float(input('Ingrese un valor para y: '))
 
