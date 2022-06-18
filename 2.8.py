@@ -8,32 +8,48 @@ def Gradiente(funcion,x1,x2):
     p_x=sp.diff(funcion,x).subs(x,x1).subs(y,x2)
     p_y=sp.diff(funcion,y).subs(x,x1).subs(y,x2)
     return p_x,p_y
-
 def g(x,y):
     return (x+2*y-7)**2+(2*x+y-5)**2
 
 funcion='(x+2*y-7)^2+(2*x+y-5)^2'
-#funcion='sin(x+y)+(x-y)^2-1.5*x+2.5*y-1'
-t=0.1
+
+
 n=0.00001
-gra=(0.0,0.0)
 dx=(0.0,0.0)
 x_n=0.0
 y_n=0.0
+
 xn=r.randint(-10,10)
 yn=r.randint(-10,10)
-j=[]
+an_x=0.0
+an_y=0.0
 h=[]
+j=[]
 
 
-norma=(Gradiente(funcion,xn,yn)[0]**2+Gradiente(funcion,xn,yn)[1]**2)**1/2
-while norma >=n:
+punto=(r.randint(-10,10),r.randint(-10,10))
+norma=(Gradiente(funcion,punto[0],punto[1])[0]**2+Gradiente(funcion,punto[0],punto[1])[1]**2)**1/2
+
+
+while norma>=n:
+    
     dx=(Gradiente(funcion,xn,yn)[0]*-1,Gradiente(funcion,xn,yn)[1]*-1)
+
+    A=(xn-an_x,yn-an_y)
+    B=(Gradiente(funcion,xn,yn)[0]-Gradiente(funcion,an_x,an_y)[0],Gradiente(funcion,xn,yn)[1]-Gradiente(funcion,an_x,an_y)[1])
+    C=abs(A[0]*B[0]+A[1]*B[1])
+    D=B
+    E=(D[0]**2+D[1]**2)
+    t=C/E
+
     x_n=xn+t*dx[0]
     y_n=yn+t*dx[1]
+    an_x=xn
+    an_y=yn
     xn=x_n
     yn=y_n
     norma=(Gradiente(funcion,x_n,y_n)[0]**2+Gradiente(funcion,x_n,y_n)[1]**2)**1/2
+
     h.append(xn)
     j.append(yn)
     print(xn,yn)
@@ -58,3 +74,6 @@ plt.plot(xf,yf,marker='o',color='green',label='Final: ('+str(xf)+','+str(yf)+')'
 plt.legend()
 plt.show()
 
+    
+    
+    
