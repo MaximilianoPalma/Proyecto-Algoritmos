@@ -9,6 +9,5 @@ def algoritmo(funcion,a):
 
 a=[]
 
-funcion=input('Ingrese la función a evaluar con dos variables: ')
-
+funcion='sin(x+y)+(x-y)^2-1.5*x+2.5*y+1'
 print(algoritmo(funcion,a))

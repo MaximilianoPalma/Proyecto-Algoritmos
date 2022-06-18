@@ -1,4 +1,3 @@
-from re import A
 import sympy as sp
 
 def Hessiana(funcion,xa,xb):
@@ -24,9 +23,9 @@ def Algoritmo(p_x,p_y,p_xy):
         return('no existe información suficiente sobre el punto')
     
 
-funcion=input('Ingrese la funcion a evaluar: ')
-xa=float(input('Ingrese una valor para x: '))
-xb=float(input('Ingrese un valor para y: '))
+funcion='-5*y^2+6*y*x+590*y-3*x^2-90*x-28800'
+xa=110.0
+xb=125.0
 
 p_x=Hessiana(funcion,xa,xb)[0]
 p_y=Hessiana(funcion,xa,xb)[1]
